@@ -9,7 +9,7 @@
     "start": "cross-env NODE_ENV=development webpack-dev-server --config config/webpack.dev.config.js",
     "build:dev": "cross-env NODE_ENV=development webpack --config config/webpack.dev.config.js",
     "build:prod": "cross-env NODE_ENV=production webpack --config config/webpack.prod.config.js",
-    "eslint": "eslint \"src/**/*.{js,vue}\" --fix",
+    "eslint": "eslint \"src/**/*.{js,vue}\"",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
