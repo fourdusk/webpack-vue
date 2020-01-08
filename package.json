@@ -11,7 +11,6 @@
     "build:prod": "cross-env NODE_ENV=production webpack --config config/webpack.prod.config.js",
     "eslint": "eslint \"src/**/*.{js,vue}\" --fix",
     "format": "prettier --write \"src/**/*.js\"",
-    "precommit": "lint-staged",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "browserslist": [
@@ -19,7 +18,7 @@
     "last 2 versions"
   ],
   "lint-staged": {
-    "src/**/*.{js,json,css,vue}": [
+    "src/**/*.{js}": [
       "prettier --write",
       "eslint",
       "gid add"
@@ -58,6 +57,7 @@
     "style-loader": "^1.1.2",
     "terser-webpack-plugin": "^2.3.1",
     "uglifyjs-webpack-plugin": "^2.2.0",
+    "vue-eslint-parser": "^7.0.0",
     "vue-loader": "^15.8.3",
     "vue-template-compiler": "^2.6.11",
     "webpack": "^4.41.4",
