@@ -18,7 +18,7 @@
     "last 2 versions"
   ],
   "lint-staged": {
-    "src/**/*.{js}": [
+    "src/**/*.{js,json,css,vue}": [
       "prettier --write",
       "eslint",
       "gid add"
