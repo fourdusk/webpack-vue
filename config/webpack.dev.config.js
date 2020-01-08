@@ -60,5 +60,5 @@ const config = WebpackMerge(CommonWebpackConfig, {
     ]
 })
 
-// smp 分析打包总耗时，loader 和 plugin 的耗时
+// smp 分析打包所用的时间
 module.exports = smp.wrap(config)

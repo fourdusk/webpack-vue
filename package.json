@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "author": "",
+  "author": "fournight",
   "license": "ISC",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --config config/webpack.dev.config.js",
@@ -21,7 +21,7 @@
     "src/**/*.{js,json,css,vue}": [
       "prettier --write",
       "eslint",
-      "gid add"
+      "git add"
     ]
   },
   "husky": {
