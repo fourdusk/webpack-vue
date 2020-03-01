@@ -1,0 +1,7 @@
+$logoWidth: 200px;
+$logoHeight: 200px;
+.logo {
+    width: $logoWidth;
+    height: $logoHeight;
+    background: url('~@/assets/img/logo.png') center no-repeat;
+}

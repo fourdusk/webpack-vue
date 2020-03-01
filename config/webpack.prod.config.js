@@ -81,7 +81,7 @@ const config = WebpackMerge(CommonWebpackConfig, {
         // 抽离 style 样式为 css 文件
         new MiniCssExtractPlugin({
             filename: 'css/[name].css',
-            chunkFilename: 'css/[contenthash:8].css'
+            chunkFilename: 'css/[contenthash].css'
         }),
 
         // 创建 html 文件，并把 webpack 打包后的静态文件插入到这个 html 文件中

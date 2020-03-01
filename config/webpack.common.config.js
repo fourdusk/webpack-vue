@@ -18,23 +18,54 @@ const config = {
     // 输出
     output: {
         path: path.resolve(__dirname, '../dist'),
-        filename: 'js/[name].[hash:8].js',
+        filename: 'js/[name].[hash].js',
         publicPath: '/',
-        chunkFilename: 'js/[name].[chunkhash:8].js'
+        chunkFilename: 'js/[name].[chunkhash].js'
     },
 
     // 模块
     module: {
         rules: [
-            // 处理 css 文件
+            // 处理 css, sass 和 scss 文件
             {
-                test: /\.css$/,
+                test: /\.(css|s[ac]ss)$/,
                 use: [
                     // 开发环境使用 style-loader，生产环境用 MiniCssExtractPlugin.loader，这两个 loader 不能共存
                     isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
-                    'css-loader'
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    }
                 ],
                 include: [path.resolve(__dirname, '../src')]
+            },
+            // 处理图片
+            {
+                test: /\.(png|jpe?g|gif)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 1024,
+                            fallback: 'file-loader',
+                            name: 'img/[hash].[ext]'
+                        }
+                    }
+                ]
             },
             // 把 es6 语法转成 es5 语法
             {

@@ -1,4 +1,3 @@
-const webpack = require('webpack')
 const path = require('path')
 const WebpackMerge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -28,10 +27,12 @@ const config = WebpackMerge(CommonWebpackConfig, {
 
     // 配置开发服务器
     devServer: {
+        port: 9000,
+        host: '0.0.0.0',
+        disableHostCheck: true,
         quiet: true,
         inline: true,
         compress: true,
-        hot: true,
         progress: true,
         clientLogLevel: 'warning',
         contentBase: path.resolve(__dirname, '../dist'),
@@ -40,9 +41,6 @@ const config = WebpackMerge(CommonWebpackConfig, {
 
     // 插件
     plugins: [
-        // 热重载
-        new webpack.HotModuleReplacementPlugin(),
-
         // 创建 html 文件，并把 webpack 打包后的静态文件插入到这个 html 文件中
         new HtmlWebpackPlugin({
             filename: 'index.html',
