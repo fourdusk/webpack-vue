@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const CommonWebpackConfig = require('./webpack.common.config')
 const SpeedMeasureWebpackPlugin = require('speed-measure-webpack-plugin')
+const baseUrl = 'http://rap2.taobao.org:38080/app/mock/246078'
 
 const smp = new SpeedMeasureWebpackPlugin()
 const config = WebpackMerge(CommonWebpackConfig, {
@@ -36,7 +37,13 @@ const config = WebpackMerge(CommonWebpackConfig, {
         progress: true,
         clientLogLevel: 'warning',
         contentBase: path.resolve(__dirname, '../dist'),
-        historyApiFallback: true
+        historyApiFallback: true,
+        proxy: {
+            '/api': {
+                target: baseUrl,
+                changeOrigin: true
+            }
+        }
     },
 
     // 插件
